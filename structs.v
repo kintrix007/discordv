@@ -1313,12 +1313,18 @@ pub const (
 	offline = PresenceStatus('offline')
 )
 
+// vfmt off
+
+// Turn off vfmt for this segment, since it insists on
+// changing `offline` to `.offline`, which is invalid syntax.
 pub struct PresenceClientStatus {
 pub mut:
 	desktop PresenceStatus = offline
 	mobile  PresenceStatus = offline
 	web     PresenceStatus = offline
 }
+
+// vfmt on
 
 pub fn (mut pcs PresenceClientStatus) from_json(f map[string]json.Any) {
 	for k, v in f {
