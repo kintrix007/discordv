@@ -20,6 +20,8 @@ pub const (
 	direct_messages          = Intent(1 << 12)
 	direct_message_reactions = Intent(1 << 13)
 	direct_message_typing    = Intent(1 << 14)
+	// All intents except guild_members and guild_presences.
 	all_allowed              = Intent(32509)
+	// All intents. No exceptions.
 	all                      = Intent(32767)
 )

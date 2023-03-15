@@ -7,8 +7,12 @@
 *.so
 *.dylib
 *.dll
+.env
 
 vls.log
 
 # VSCode workspace settings
 .vscode/
+
+# JetBrains IDEs
+.idea/
