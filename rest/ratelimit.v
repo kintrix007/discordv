@@ -25,7 +25,9 @@ pub fn (mut rl RateLimiter) get_bucket(key string) &Bucket {
 		rl.mutex.unlock()
 	}
 	if key in rl.buckets {
-		return rl.buckets[key]
+		return rl.buckets[key] or {
+			panic("Key '${key}' is not present in rate limiter's buckets.")
+		}
 	}
 	bucket := &Bucket{
 		rl: rl
