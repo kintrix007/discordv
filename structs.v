@@ -1315,9 +1315,9 @@ pub const (
 
 pub struct PresenceClientStatus {
 pub mut:
-	desktop PresenceStatus = .offline
-	mobile  PresenceStatus = .offline
-	web     PresenceStatus = .offline
+	desktop PresenceStatus = offline
+	mobile  PresenceStatus = offline
+	web     PresenceStatus = offline
 }
 
 pub fn (mut pcs PresenceClientStatus) from_json(f map[string]json.Any) {
