@@ -12,7 +12,9 @@ jobs:
           cd v
           make
           sudo ./v symlink
-          v --version
+          echo
+          echo
+          which v
           cd -
     
       - name: Checkout
