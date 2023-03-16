@@ -14,7 +14,7 @@ jobs:
 
       - name: Verify v fmt
         run: |
-          v fmt -verify `find . -name "*.v"`
+          for f in `find . -name "*.v"`; do v fmt -verify $f; done
 
   compile:
     strategy:
