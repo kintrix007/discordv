@@ -12,6 +12,9 @@ jobs:
           cd v
           make
           sudo ./v symlink
+          echo
+          echo
+          which v
           cd -
     
       - name: Checkout
@@ -19,7 +22,7 @@ jobs:
 
       - name: Verify v fmt
         run: |
-          /usr/local/bin/v fmt -verify .
+          v fmt -verify .
 
   compile:
     strategy:
