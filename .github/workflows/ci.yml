@@ -3,7 +3,7 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  code-formatting:
+  check-formatting:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
