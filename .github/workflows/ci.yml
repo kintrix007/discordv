@@ -7,12 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup V
-        run: |
-          git clone https://github.com/vlang/v
-          cd v
-          make
-          sudo ./v symlink
-          cd -
+        uses: vlang/setup-v@v1.3
+        with:
+          check-latest: true
+          stable: true
     
       - name: Checkout
         uses: actions/checkout@v3
