@@ -12,7 +12,6 @@ jobs:
           cd v
           make
           sudo ./v symlink
-          v --version
           cd -
     
       - name: Checkout
