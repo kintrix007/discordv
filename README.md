@@ -12,18 +12,18 @@ Yet another feature-rich Discord Bot Framework written in V <i>(<b>WIP</b>)</i><
 ## Example
 
 ```v
-import kintrix007.discordv as vd
+import discordv as vd
 
 fn main() {
-    mut client := vd.new(token: 'token') ?
+    mut client := vd.new(token: 'token')!
     client.on_message_create(on_ping)
     client.run().wait()
 }
 
 fn on_ping(mut client vd.Client, evt &vd.MessageCreate) {
     if evt.content == '!ping' {
-        client.channel_message_send(evt.channel_id, content: 'pong!') or { }
-    }
+		  client.channel_message_send(evt.channel_id, content: 'pong!') or {}
+	}
 }
 ```
 More [examples](https://github.com/kintrix007/discordv/blob/master/examples/)
@@ -36,7 +36,7 @@ More [examples](https://github.com/kintrix007/discordv/blob/master/examples/)
 ### Install via vpm
 
 ```sh
-v install --git https://github.com/kintrix007/discordv
+v install --git https://github.com/kintrix007/discordv.git
 ```
 
 <!-- ### Install via git
