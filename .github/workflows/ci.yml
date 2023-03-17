@@ -3,35 +3,31 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  # code-formatting:
+  # TODO Would be great to look into why this is failing the CI
+  # check-formatting:
   #   runs-on: ubuntu-latest
   #   steps:
-  #   - name: Checkout V
-  #     uses: actions/checkout@v2
-  #     with:
-  #       repository: vlang/v
-  #   - name: Checkout VPM
-  #     uses: actions/checkout@v2
-  #     with:
-  #       path: vpm
-  #   - name: Build V
-  #     run: make
-  #   - name: v fmt -verify
-  #     run: |
-  #       cd vpm
-  #       ../v fmt -verify vpm.v user.v token.v package.v login.v db.v
+  #     - name: Setup V
+  #       uses: vlang/setup-v@v1.3
+    
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-  ubuntu:
-    runs-on: ubuntu-20.04
+  #     - name: Verify v fmt
+  #       run: |
+  #         v fmt -verify .
+
+  compile:
+    strategy:
+      matrix:
+        os: [ubuntu-20.04, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Setup V
         uses: vlang/setup-v@v1.3
-        with:
-          check-latest: true
-          stable: true
+    
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Symlink to ~/.vmodules
         run: |
